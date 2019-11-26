@@ -12,7 +12,7 @@ struct Home: View {
     var body: some View {
         VStack() {
             TabView {
-                Text("The First Tab")
+                CardList()
                     .tabItem {
                         Image(systemName: "cube.fill")
                         Text("卡牌库")
@@ -30,6 +30,8 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        ForEach([0, 1], id: \.self) { i in
+            Home().environment(\.colorScheme, i == 0 ? .dark : .light)
+        }
     }
 }

@@ -8,6 +8,10 @@
 
 import Foundation
 
-struct Card: Codable {
+struct Card: Identifiable, Codable, Hashable {
+    var id: Int
+    
     var name: String
+    var cardTypeId: Int
+    var manaCost: Int
 }

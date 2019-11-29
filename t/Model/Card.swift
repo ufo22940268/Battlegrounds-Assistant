@@ -14,4 +14,5 @@ struct Card: Identifiable, Codable, Hashable {
     var name: String
     var cardTypeId: Int
     var manaCost: Int
+    var image: String
 }

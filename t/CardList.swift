@@ -27,7 +27,7 @@ struct CardList: View {
                                     Text(card.name)
                                     Spacer()
                                 }
-                                NavigationLink(destination: CardDetail(), label: {
+                                NavigationLink(destination: CardDetail(card: card), label: {
                                     EmptyView()
                                 })
                             }

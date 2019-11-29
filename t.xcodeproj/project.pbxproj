@@ -15,6 +15,8 @@
 		424926F6238808F70055F531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424926F4238808F70055F531 /* LaunchScreen.storyboard */; };
 		42492701238808F80055F531 /* tTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42492700238808F80055F531 /* tTests.swift */; };
 		42DC9C52238F4E060075B28E /* CardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC9C51238F4E060075B28E /* CardDetail.swift */; };
+		42DC9C55239135970075B28E /* KingfisherSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DC9C54239135970075B28E /* KingfisherSwiftUI.framework */; };
+		42DC9C5A2391391C0075B28E /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DC9C592391391B0075B28E /* Kingfisher.framework */; };
 		42ECD34F238C102E00B0A332 /* battleround.json in Resources */ = {isa = PBXBuildFile; fileRef = 42ECD34E238C102E00B0A332 /* battleround.json */; };
 		42ECD351238C10C600B0A332 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ECD350238C10C600B0A332 /* Data.swift */; };
 		42ECD353238C121000B0A332 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ECD352238C121000B0A332 /* Card.swift */; };
@@ -44,6 +46,8 @@
 		42492700238808F80055F531 /* tTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tTests.swift; sourceTree = "<group>"; };
 		42492702238808F80055F531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42DC9C51238F4E060075B28E /* CardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetail.swift; sourceTree = "<group>"; };
+		42DC9C54239135970075B28E /* KingfisherSwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KingfisherSwiftUI.framework; path = Carthage/Build/iOS/KingfisherSwiftUI.framework; sourceTree = "<group>"; };
+		42DC9C592391391B0075B28E /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		42ECD34E238C102E00B0A332 /* battleround.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = battleround.json; sourceTree = "<group>"; };
 		42ECD350238C10C600B0A332 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		42ECD352238C121000B0A332 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42DC9C5A2391391C0075B28E /* Kingfisher.framework in Frameworks */,
+				42DC9C55239135970075B28E /* KingfisherSwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +80,7 @@
 				424926E8238808F60055F531 /* t */,
 				424926FF238808F80055F531 /* tTests */,
 				424926E7238808F60055F531 /* Products */,
+				42DC9C53239135970075B28E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +128,15 @@
 			path = tTests;
 			sourceTree = "<group>";
 		};
+		42DC9C53239135970075B28E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42DC9C592391391B0075B28E /* Kingfisher.framework */,
+				42DC9C54239135970075B28E /* KingfisherSwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		42ECD354238C121600B0A332 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +156,7 @@
 				424926E2238808F60055F531 /* Sources */,
 				424926E3238808F60055F531 /* Frameworks */,
 				424926E4238808F60055F531 /* Resources */,
+				42DC9C58239135CC0075B28E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -226,6 +243,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		42DC9C58239135CC0075B28E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/KingfisherSwiftUI.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/KingfisherSwiftUI.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		424926E2238808F60055F531 /* Sources */ = {
@@ -394,6 +435,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"t/Preview Content\"";
 				DEVELOPMENT_TEAM = S833P2K5YV;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = t/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -414,6 +459,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"t/Preview Content\"";
 				DEVELOPMENT_TEAM = S833P2K5YV;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = t/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

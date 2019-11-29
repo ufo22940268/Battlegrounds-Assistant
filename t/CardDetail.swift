@@ -7,15 +7,22 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct CardDetail: View {
+    
+    let card: Card
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).navigationBarTitle("asdf")
+        VStack {
+            KFImage(URL(string: card.image))
+        }.navigationBarTitle(card.name)
     }
 }
 
 struct CardDetail_Previews: PreviewProvider {
     static var previews: some View {
-        CardDetail()
+        CardDetail(card: cardData.first!)
+//            .environment(\.colorScheme, .dark)
     }
 }

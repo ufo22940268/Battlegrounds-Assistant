@@ -22,9 +22,11 @@ struct CardList: View {
                 ForEach(cardGroups.keys.sorted(), id: \.self) { key in
                     Section(header: Image(systemName: "\(key).circle.fill")) {
                         ForEach(self.cardGroups[key]!) { card in
-                            
                             ZStack {
-                                Text(card.name)
+                                HStack {
+                                    Text(card.name)
+                                    Spacer()
+                                }
                                 NavigationLink(destination: CardDetail(), label: {
                                     EmptyView()
                                 })
@@ -34,15 +36,13 @@ struct CardList: View {
                 }
             }
             .listStyle(DefaultListStyle())
-            .navigationBarTitle("adsf")
+            .navigationBarTitle("卡牌库")
         }
     }
 }
 
 struct CardList_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            CardList().environment(\.colorScheme, .dark)
-        }
+        CardList().environment(\.colorScheme, .dark)
     }
 }

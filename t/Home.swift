@@ -10,9 +10,6 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
-//        NavigationView {
-//            VStack() {
-//                CardList()
                 TabView {
                     CardList()
                         .tabItem {
@@ -28,8 +25,6 @@ struct Home: View {
                 .font(.headline)
                 .navigationBarTitle(Text("asdfasdfii"))
                 .edgesIgnoringSafeArea(.top)
-//            }
-//        }
     }
 }
 

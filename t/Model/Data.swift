@@ -11,7 +11,9 @@ import CoreLocation
 import UIKit
 import SwiftUI
 
-let cardData: [Card] = (load("battleround.json") as [Card]).filter { $0.cardTypeId == 4 }
+let cardData: [Card] = (load("battleground.json") as [Card]).filter { $0.cardTypeId == 4 }
+let heroData: [Hero] = (load("battleground.json") as [Hero]).filter { $0.battlegrounds.hero }
+let heroSkillData: [Skill] = load("heros_skills.json") as [Skill]
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data

@@ -14,10 +14,13 @@
 		424926F3238808F70055F531 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424926F2238808F70055F531 /* Preview Assets.xcassets */; };
 		424926F6238808F70055F531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424926F4238808F70055F531 /* LaunchScreen.storyboard */; };
 		42492701238808F80055F531 /* tTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42492700238808F80055F531 /* tTests.swift */; };
+		42A68993239267DD00134CE4 /* HeroList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A68992239267DC00134CE4 /* HeroList.swift */; };
+		42A6899523926B1700134CE4 /* HeroDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6899423926B1700134CE4 /* HeroDetail.swift */; };
+		42BACD3E2392866200719A97 /* heros_skills.json in Resources */ = {isa = PBXBuildFile; fileRef = 42BACD3D2392866200719A97 /* heros_skills.json */; };
 		42DC9C52238F4E060075B28E /* CardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC9C51238F4E060075B28E /* CardDetail.swift */; };
 		42DC9C55239135970075B28E /* KingfisherSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DC9C54239135970075B28E /* KingfisherSwiftUI.framework */; };
 		42DC9C5A2391391C0075B28E /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DC9C592391391B0075B28E /* Kingfisher.framework */; };
-		42ECD34F238C102E00B0A332 /* battleround.json in Resources */ = {isa = PBXBuildFile; fileRef = 42ECD34E238C102E00B0A332 /* battleround.json */; };
+		42ECD34F238C102E00B0A332 /* battleground.json in Resources */ = {isa = PBXBuildFile; fileRef = 42ECD34E238C102E00B0A332 /* battleground.json */; };
 		42ECD351238C10C600B0A332 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ECD350238C10C600B0A332 /* Data.swift */; };
 		42ECD353238C121000B0A332 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ECD352238C121000B0A332 /* Card.swift */; };
 		42ECD356238CBADF00B0A332 /* CardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ECD355238CBADF00B0A332 /* CardList.swift */; };
@@ -45,10 +48,13 @@
 		424926FC238808F80055F531 /* tTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42492700238808F80055F531 /* tTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tTests.swift; sourceTree = "<group>"; };
 		42492702238808F80055F531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42A68992239267DC00134CE4 /* HeroList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroList.swift; sourceTree = "<group>"; };
+		42A6899423926B1700134CE4 /* HeroDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetail.swift; sourceTree = "<group>"; };
+		42BACD3D2392866200719A97 /* heros_skills.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heros_skills.json; sourceTree = "<group>"; };
 		42DC9C51238F4E060075B28E /* CardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetail.swift; sourceTree = "<group>"; };
 		42DC9C54239135970075B28E /* KingfisherSwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KingfisherSwiftUI.framework; path = Carthage/Build/iOS/KingfisherSwiftUI.framework; sourceTree = "<group>"; };
 		42DC9C592391391B0075B28E /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
-		42ECD34E238C102E00B0A332 /* battleround.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = battleround.json; sourceTree = "<group>"; };
+		42ECD34E238C102E00B0A332 /* battleground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = battleground.json; sourceTree = "<group>"; };
 		42ECD350238C10C600B0A332 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		42ECD352238C121000B0A332 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		42ECD355238CBADF00B0A332 /* CardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardList.swift; sourceTree = "<group>"; };
@@ -96,17 +102,20 @@
 		424926E8238808F60055F531 /* t */ = {
 			isa = PBXGroup;
 			children = (
+				42BACD3D2392866200719A97 /* heros_skills.json */,
 				424926E9238808F60055F531 /* AppDelegate.swift */,
 				424926EB238808F60055F531 /* SceneDelegate.swift */,
 				424926ED238808F60055F531 /* Home.swift */,
 				424926EF238808F70055F531 /* Assets.xcassets */,
 				424926F4238808F70055F531 /* LaunchScreen.storyboard */,
 				424926F7238808F70055F531 /* Info.plist */,
-				42ECD34E238C102E00B0A332 /* battleround.json */,
+				42A68992239267DC00134CE4 /* HeroList.swift */,
+				42ECD34E238C102E00B0A332 /* battleground.json */,
 				424926F1238808F70055F531 /* Preview Content */,
 				42ECD354238C121600B0A332 /* Model */,
 				42ECD355238CBADF00B0A332 /* CardList.swift */,
 				42DC9C51238F4E060075B28E /* CardDetail.swift */,
+				42A6899423926B1700134CE4 /* HeroDetail.swift */,
 			);
 			path = t;
 			sourceTree = "<group>";
@@ -228,8 +237,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42ECD34F238C102E00B0A332 /* battleround.json in Resources */,
+				42ECD34F238C102E00B0A332 /* battleground.json in Resources */,
 				424926F6238808F70055F531 /* LaunchScreen.storyboard in Resources */,
+				42BACD3E2392866200719A97 /* heros_skills.json in Resources */,
 				424926F3238808F70055F531 /* Preview Assets.xcassets in Resources */,
 				424926F0238808F70055F531 /* Assets.xcassets in Resources */,
 			);
@@ -275,7 +285,9 @@
 			files = (
 				42DC9C52238F4E060075B28E /* CardDetail.swift in Sources */,
 				424926EA238808F60055F531 /* AppDelegate.swift in Sources */,
+				42A6899523926B1700134CE4 /* HeroDetail.swift in Sources */,
 				42ECD356238CBADF00B0A332 /* CardList.swift in Sources */,
+				42A68993239267DD00134CE4 /* HeroList.swift in Sources */,
 				424926EC238808F60055F531 /* SceneDelegate.swift in Sources */,
 				42ECD353238C121000B0A332 /* Card.swift in Sources */,
 				424926EE238808F60055F531 /* Home.swift in Sources */,

@@ -16,10 +16,10 @@ struct Home: View {
                             Image(systemName: "cube.fill")
                             Text("卡牌库")
                     }
-                    Text("Another Tab")
+                    HeroList(heros: heroData)
                         .tabItem {
                             Image(systemName: "slider.horizontal.below.rectangle")
-                            Text("检索")
+                            Text("英雄")
                     }
                 }
                 .font(.headline)

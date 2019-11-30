@@ -21,8 +21,8 @@ struct Stars: View {
                     .frame(width: 30, height: 30, alignment: .leading)
                     .foregroundColor(.yellow)
             }
-            if num < 5 {
-                ForEach(0..<5 - num) { _ in
+            if num < 6 {
+                ForEach(0..<6 - num) { _ in
                     Image(systemName: "star")
                     .resizable()
                         .frame(width: 30, height: 30, alignment: .leading)
@@ -40,7 +40,7 @@ struct CardDetail: View {
     
     var body: some View {
         VStack {
-            Stars(num: 3)
+            Stars(num: card.battlegrounds.tier ?? 0)
             KFImage(URL(string: card.image))
                 .resizable(capInsets: EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30), resizingMode: .stretch)
                 .aspectRatio(contentMode: .fit)
@@ -56,6 +56,6 @@ struct CardDetail_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             CardDetail(card: cardData.first!)
-        }
+        }.colorScheme(.dark)
     }
 }

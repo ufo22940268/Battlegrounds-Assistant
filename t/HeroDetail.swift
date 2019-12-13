@@ -9,56 +9,103 @@
 import SwiftUI
 import KingfisherSwiftUI
 
-struct HtmlLabel: UIViewRepresentable {
-    
-    var html: String
-    
+extension String {
     var htmlToAttributedString: NSAttributedString? {
-        guard let data = html.data(using: .utf8) else { return NSAttributedString() }
+        guard let data = data(using: .utf8) else { return NSAttributedString() }
         do {
             return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
         } catch {
             return NSAttributedString()
         }
     }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
+}
+
+class TextView : UIView {
     
-    func updateUIView(_ uiView: UILabel, context: UIViewRepresentableContext<HtmlLabel>) {
+    var html: NSAttributedString?
+    
+    init(html: NSAttributedString?) {
+        self.html = html
+        super.init(frame: .zero)
+        let label = UILabel()
+        label.attributedText = html
+        label.font = UIFont.systemFont(ofSize: 20)
+        label.numberOfLines = 0
         
+        label.lineBreakMode = .byWordWrapping
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.sizeToFit()
+        addSubview(label)
+        NSLayoutConstraint.activate([
+            label.widthAnchor.constraint(equalTo: widthAnchor),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor),
+            label.heightAnchor.constraint(equalTo: heightAnchor)
+        ])
     }
     
-    func makeUIView(context: UIViewRepresentableContext<HtmlLabel>) -> UILabel {
-        let label = UILabel()
-        label.attributedText = htmlToAttributedString
-        return label
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+struct HtmlLabel: UIViewRepresentable {
+    
+    var html: NSAttributedString?
+    
+    init(text: String) {
+        html = text.htmlToAttributedString
+    }
+    
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<HtmlLabel>) {
+        uiView.sizeToFit()
+    }
+    
+    func makeUIView(context: UIViewRepresentableContext<HtmlLabel>) -> UIView {
+        return TextView(html: html)
     }
 }
 
 struct HeroDetail: View {
     var hero: Hero
-    var skill: Skill? {
-        return heroSkillData.first { (card) -> Bool in
+    
+    var firstSkill: Skill {
+        return allSkills.first!
+    }
+    
+    var allSkills: [Skill] {
+        return heroSkillData.filter { (card) -> Bool in
             return card.id == hero.childIds.first
         }
     }
         
+        
     var body: some View {
-        return VStack {
-            KFImage(URL(string: hero.battlegrounds.image))
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 200)
-            
-            if skill != nil {
-                HtmlLabel(html: skill!.text)
-            }
-            
-            Spacer()
+        return
+            ScrollView {
+                VStack {
+                    ScrollView {
+                        HStack(spacing: 10) {
+                            ForEach(allSkills) { skill in
+                                KFImage(URL(string: skill.image))
+                            }
+                        }
+                    }.padding(.top)
+                    Spacer()
+                }
+                .navigationBarTitle(hero.name)
         }
     }
 }
 
 struct HeroDetail_Previews: PreviewProvider {
     static var previews: some View {
-        HeroDetail(hero: heroData.first!)
+        NavigationView {
+            HeroDetail(hero: heroData.first!)
+        }
     }
 }
+

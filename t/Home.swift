@@ -10,21 +10,21 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
-                TabView {
-                    CardList()
-                        .tabItem {
-                            Image(systemName: "cube.fill")
-                            Text("卡牌库")
-                    }
-                    HeroList(heros: heroData)
-                        .tabItem {
-                            Image(systemName: "slider.horizontal.below.rectangle")
-                            Text("英雄")
-                    }
-                }
-                .font(.headline)
-                .navigationBarTitle(Text("asdfasdfii"))
-                .edgesIgnoringSafeArea(.top)
+        TabView {
+            CardList()
+                .tabItem {
+                    Image(systemName: "cube.fill")
+                    Text("卡牌库")
+            }.tag(0)
+            HeroList(heros: heroData)
+                .tabItem {
+                    Image(systemName: "slider.horizontal.below.rectangle")
+                    Text("英雄")
+            }.tag(1)
+        }
+        .font(.headline)
+        .navigationBarTitle(Text("asdfasdfii"))
+        .edgesIgnoringSafeArea(.top)
     }
 }
 

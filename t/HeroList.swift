@@ -12,21 +12,38 @@ import KingfisherSwiftUI
 struct HeroList: View {
     var heros: [Hero]
     
+    init(heros: [Hero]) {
+        self.heros = heros
+        UITableView.appearance().separatorColor = .clear
+    }
+    
+    var hero: Hero {
+      heros.first!
+    }
+
+    
     var body: some View {
         List {
             ForEach(heros) { hero in
-                KFImage(URL(string: hero.battlegrounds.image))
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding(.horizontal, 50)
-                
+                ZStack {
+                    NavigationLink(destination: HeroDetail(hero: hero), label: {
+                        EmptyView()
+                    })
+                    KFImage(URL(string: hero.battlegrounds.image))
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.horizontal, 50)
+                }
+
             }
-        }
-    }
+        }.navigationBarTitle("英雄")
+    }
 }
 
 struct HeroList_Previews: PreviewProvider {
     static var previews: some View {
-        HeroList(heros: heroData)
+        NavigationView {            
+            HeroList(heros: heroData)
+        }
     }
 }

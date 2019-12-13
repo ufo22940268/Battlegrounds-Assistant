@@ -23,21 +23,23 @@ struct HeroList: View {
 
     
     var body: some View {
-        List {
-            ForEach(heros) { hero in
-                ZStack {
-                    NavigationLink(destination: HeroDetail(hero: hero), label: {
-                        EmptyView()
-                    })
-                    KFImage(URL(string: hero.battlegrounds.image))
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(.horizontal, 50)
+        NavigationView {            
+            List {
+                ForEach(heros) { hero in
+                    ZStack {
+                        KFImage(URL(string: hero.battlegrounds.image))
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.horizontal, 50)
+                        NavigationLink(destination: HeroDetail(hero: hero), label: {
+                            EmptyView()
+                        })
+                    }
+                    
                 }
-
-            }
-        }.navigationBarTitle("英雄")
-    }
+            }.navigationBarTitle("英雄")
+        }
+    }
 }
 
 struct HeroList_Previews: PreviewProvider {

@@ -23,7 +23,6 @@ struct Home: View {
             }.tag(1)
         }
         .font(.headline)
-        .navigationBarTitle(Text("asdfasdfii"))
         .edgesIgnoringSafeArea(.top)
     }
 }

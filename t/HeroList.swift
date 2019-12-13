@@ -23,14 +23,14 @@ struct HeroList: View {
 
     
     var body: some View {
-        NavigationView {            
+        NavigationView {
             List {
                 ForEach(heros) { hero in
                     ZStack {
                         KFImage(URL(string: hero.battlegrounds.image))
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .padding(.horizontal, 50)
+                            .padding(.horizontal, 80)
                         NavigationLink(destination: HeroDetail(hero: hero), label: {
                             EmptyView()
                         })

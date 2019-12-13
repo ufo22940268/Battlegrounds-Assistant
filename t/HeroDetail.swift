@@ -84,19 +84,21 @@ struct HeroDetail: View {
         
         
     var body: some View {
-        return
-            ScrollView {
-                VStack {
-                    ScrollView {
-                        HStack(spacing: 10) {
-                            ForEach(allSkills) { skill in
-                                KFImage(URL(string: skill.image))
-                            }
+        ScrollView {
+            VStack {
+                ScrollView {
+                    HStack(spacing: 10) {
+                        ForEach(allSkills) { skill in
+                            KFImage(URL(string: skill.image))
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 400)
                         }
-                    }.padding(.top)
-                    Spacer()
-                }
-                .navigationBarTitle(hero.name)
+                    }
+                }.padding(.top)
+                Spacer()
+            }
+            .navigationBarTitle(hero.name)
         }
     }
 }
@@ -104,7 +106,7 @@ struct HeroDetail: View {
 struct HeroDetail_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            HeroDetail(hero: heroData.first!)
+            HeroDetail(hero: heroData[1])
         }
     }
 }
